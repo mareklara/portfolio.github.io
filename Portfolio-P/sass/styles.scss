@@ -1,0 +1,624 @@
+@use 'variables';
+@use 'initials';
+@use 'mixin';
+
+header{
+    height: 100vh;
+    @media (min-width:550px){
+        height: variables.$font38rem;
+        height: 100vh;
+    }
+}
+
+.logo{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+
+.fa-code{
+    font-size: 25px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.sticky + .content {
+    padding-top: 60px;
+}
+
+.nav-section{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    border-bottom: 1px solid white;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba(57, 57, 57, 0.37);
+    backdrop-filter: blur( 7.5px );
+    -webkit-backdrop-filter: blur( 7.5px );
+    // border-radius: 10px;
+    // border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.ul-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    
+}
+.li{
+    text-align: center;
+    width: 6rem;
+    list-style: none;
+    font-size: 1.5rem;
+     @media (max-width: 768px){
+         margin: 16px 0;
+    }
+}
+
+.link{
+    color: rgb(251, 251, 251);
+    text-decoration: none;
+    transition: 0.7sease;
+
+}
+
+
+li.active,li:hover{
+    border: 1px solid rgb(252, 252, 252);
+    width: 6rem;
+    height: 2rem;
+    border-radius: 3px;
+    transition: .5s;
+    text-align: center;
+}
+
+.hamburguer{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+
+@media (max-width: 768px){
+    .hamburguer{
+        display: block;
+    }
+    .hamburguer.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburguer.active .bar:nth-child(1){
+        transform:translateY(8px) rotate(45deg);
+    }
+    .hamburguer.active .bar:nth-child(3){
+        transform:translateY(-8px) rotate(-45deg);
+    }
+    .ul-container{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: rgb(29, 28, 28);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1;
+        background: rgba( 255, 255, 255, 0.15 );
+        box-shadow: 0 8px 32px 0 rgba(84, 85, 85, 0.37);
+        backdrop-filter: blur( 7.5px );
+        -webkit-backdrop-filter: blur( 7.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+    .ul-container.active{
+        left: 0;
+    }
+}
+
+// Hero section
+.container-header{
+    gap: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 1px solid white;
+    @media (min-width: 550px){
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-top: 7rem;
+        height: 35rem;
+        width: variables.$font75rem;
+        margin: auto;
+    }
+}
+
+.container-text{
+    gap: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media (min-width: 550px){
+        
+        display: flex;
+        flex-direction:row;
+        gap: 0;
+        // flex-wrap: nowrap;
+    }
+}
+
+.container-socials{
+    display: flex;
+    justify-content: space-around;
+    @media (min-width: 550px){
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        height: 325px;
+        margin-top: 30px;
+    }
+    
+    &__social-links{
+        text-decoration: none;
+        border: none;
+        @include mixin.scale;
+    }
+
+    &__social-icons{
+        color: white;
+        font-size: 30px;
+        @media (min-width: 550px){
+            font-size: 3rem;
+        }
+    }
+    &__img{
+        width: 30px;
+    }
+}
+
+.ri-mail-line{
+    @include mixin.color(rgb(153, 216, 158));
+}
+.ri-telegram-line{
+    @include mixin.color(rgb(69, 164, 247));
+}
+.ri-linkedin-box-line{
+    @include mixin.color(rgb(70, 230, 241));
+}
+.container-h1{
+    &__h1{
+        margin-top: 30px;
+        color: white;
+        font-family: variables.$font-nanum;
+        font-size: 50px;
+        letter-spacing: 5px;
+
+        @media (min-width:550px){
+            width: 470px;
+            font-size: 90px;
+        }
+    }
+}
+
+.picture-container{
+    &__bw-img{
+        width:150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+
+        @media (min-width: 550px){
+            width: 360px;
+            height: 360px;
+        }
+    }
+}
+
+.info-container{
+    text-align: center;
+    margin-top: 20px;
+    gap: 7px;
+}
+.info-wrapBox{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+    &__experience{
+        @include mixin.experience;
+    }
+    &__p{
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        font-family: variables.$font-nanum;
+        font-weight: 900;
+    }
+    @media (min-width:550px){
+        width: variables.$font45rem;
+        margin: auto;
+        width: variables.$font75rem;
+    }
+}
+
+.cv-container{
+    margin-top: 1rem;
+    height: 5rem;
+}
+
+.CV-btn{
+    margin-top: 1rem;
+    width: 8rem;
+    height: 3rem;
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    @include mixin.scale;
+    &__download{
+        color: rgb(254, 249, 249);
+        text-decoration: none;
+        // padding: 1.4rem;
+    }
+}
+
+// Section About me
+.section{
+    height: variables.$font45rem;
+    @media (min-width:550px){
+        height: variables.$font38rem;
+        
+    }
+}
+.aboutMe-containerText{
+    text-align: center;
+    
+    &__h2{
+        @include mixin.basic;
+        @media (min-width:550px){
+            font-size: 3rem;
+        }
+
+        &::after{
+           @include mixin.after;
+        }
+    }
+}
+
+.aboutMe-subContainer{
+    margin-top: 25px;
+    &__h2{
+        @include mixin.h2-basic;
+        margin: auto;
+        @media (min-width:550px){
+            font-size: 3rem;
+            width: variables.$font40rem;
+            padding: 1rem;
+        }
+    }
+
+    &__paragraph{
+        font-family: variables.$font-nanum;
+        color: variables.$color-white;
+        margin: 20px auto;
+        width: variables.$font20rem;
+        line-height: 1.5rem;
+
+        @media (min-width:550px){
+            width: 40rem;
+            height: 8rem;
+            line-height: 2rem;
+            margin: 0;
+            padding: 1rem;
+        }
+    }
+}
+
+.aboutMe-containerInfo{
+    @media (min-width:550px){
+        width: variables.$font75rem;
+        margin: 3rem auto;
+        display: flex;
+        justify-content: space-evenly;
+        border-bottom: 1px solid variables.$color-white;
+    }
+}
+
+.aboutMe-containerTech{
+    text-align: center;
+    margin-bottom: 1rem;
+
+    &__h2{
+        @include mixin.basic;
+
+        &::after{
+           @include mixin.after;
+        }
+    }
+}
+
+.aboutMe-boxTech{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:30px ;
+
+    @media (min-width:550px){
+        width: 30rem;
+        // flex-wrap: wrap;
+    }
+    
+    &__tech{  
+        font-size: 70px;
+        color: variables.$color-white;
+    }
+}
+
+.coding-icons{
+    width: 100px;
+    height: auto;               
+    position: relative;
+    &__orange{
+        color: variables.$orange;  
+        @include mixin.underline("html");
+        @include mixin.scale;
+    }
+    &__blue{
+        color: variables.$blue;
+        @include mixin.underline("CSS");
+        @include mixin.scale;
+    }
+    &__yellow{
+        color: variables.$yellow;
+        @include mixin.underline("JavaScript");
+        @include mixin.scale;
+    }
+    &__soft-blue{
+        color: variables.$soft-blue;
+        @include mixin.underline("React");
+        @include mixin.scale;
+    }
+    &__mix-color{
+        color: variables.$mix-color;
+        @include mixin.underline("Python");
+        @include mixin.scale;
+    }
+    &__boldBlue{
+        color: variables.$boldBlue;
+        @include mixin.underline("MySQL");
+        @include mixin.scale;
+    }
+    &__pink{
+        color: variables.$pink;
+        @include mixin.underline("Sass");
+        @include mixin.scale;
+    }
+    &__strongBlue{
+        color: variables.$strongBlue;
+        @include mixin.underline("Bootstrap");
+        @include mixin.scale;
+    }
+}
+
+// Section Projects
+
+.mainContainer-projects{
+    @media (min-width:550px){
+        height: variables.$font38rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+.containerText{
+    text-align: center;
+    &__h2{
+        @include mixin.basic;
+        @media (min-width:550px){
+            font-size: 3rem;
+        }
+
+        &::after{
+           @include mixin.after;
+        }
+    }
+}
+
+.containerProjects{
+    padding: 20px;
+    margin: 0.5rem auto;
+
+    @media (min-width:550px){
+        margin-bottom: 60px;
+        padding: 0;
+        width: variables.$font75rem;
+        height: 350px;
+        // margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 6rem;
+        border-bottom: 1px solid variables.$color-white;
+    }
+}
+
+.projects-subcontainer{
+    @media (min-width:550px){
+        width: 19rem;
+        height: 290px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}
+
+.project-info{
+    text-align: center;
+    @media (min-width:550px){
+        padding: 6px;
+    }
+    &__img{
+        @include mixin.img-size;
+        @include mixin.scale;
+        @media (min-width:550px){
+            border-radius: 0.7rem;
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+    
+    &__h3{
+        @include mixin.project-h3;
+    }
+
+    &__paragraph{
+        @include mixin.paragraph;
+        width: variables.$font20rem;
+    }
+}
+
+.container-viewContent{
+    padding-top: 0.5rem;
+    @media (min-width:550px){
+        padding: 6px;
+        height: 5rem;
+    }
+    &__link{
+        @include mixin.project-link;
+        position: relative;
+        &::after{
+            @include mixin.after;
+        }
+    }
+}
+
+// education Section
+.section-education{
+    // height: 100vh;
+    height: variables.$font45rem;
+    @media (min-width:550px){
+        height: variables.$font38rem;
+    }
+}
+
+.education-mainContainer{
+    @media (min-width:550px){
+        margin: auto;
+        border-bottom: 1px solid white;
+        width: variables.$font75rem;
+    }
+}
+.containerHeader{
+    text-align: center;
+    margin-top: 5rem;
+    &__h2{
+        @include mixin.basic;
+        position: relative;
+        @media (min-width:550px){
+            font-size: 3rem;
+        }
+
+        &::after{
+           @include mixin.after;
+        }
+    }
+}
+
+.education-information{
+    margin-top: 2rem;
+
+    @media (min-width: 550px){
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 5rem;
+        // margin-top: 8rem;
+    }
+}
+.education-firstSchool{
+    position: relative;
+    height: 8rem;
+    @media (min-width:  550px){
+        @include mixin.flex-box;
+        @include mixin.rounded; 
+    }
+    &__h2{
+        @include mixin.h2-basic;
+        margin: auto;
+        &::before{
+            @include mixin.bullet-point;
+            @media (min-width: 550px){
+                @include mixin.before-media;
+            }
+        }
+        @media (min-width: 550px){
+            margin: 0;
+        }
+    }
+    &__paragraph{
+        color: white;
+        margin:0.8rem 0 0 7rem; 
+    }
+}
+
+.education-secondSchool{
+    position: relative;
+    height: 8rem;
+    @media (min-width:  550px){
+        @include mixin.flex-box;
+        @include mixin.rounded;
+    }
+    &__h2{
+        height: 2rem;
+        margin: auto;
+        @include mixin.h2-basic;
+        &::before{
+            @include mixin.bullet-point;
+            @media (min-width: 550px){
+                @include mixin.before-media;
+            }
+        } 
+        @media (min-width: 550px){
+            margin: 0;
+        }
+    }
+        &__paragraph{
+            color: variables.$color-white;
+            margin:0.8rem 0 0 7rem;
+        }
+}
+
+// footer
+.footer-container{
+    border-top: 1px solid white;
+    height: 2rem;
+
+    &__marquee{
+        direction: right;
+        height: 1rem;
+        width: 500px;
+        color: white;
+        @media (min-width:550px){
+            width: 100%;
+        }
+    }
+}
